@@ -1,0 +1,34 @@
+h1, h3 {
+    line-height: 0%;
+}
+
+.cidade, .telefone, .e-mail {
+    margin: 1px;
+}
+
+.subtitulo {
+    font-size: 18px;
+}
+
+h2 {
+    color: rgb(199, 4, 189);
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+
+.coluna {
+    display: flex;
+    flex-direction: column;
+}
+
+.artigo {
+    margin-bottom: 16px;
+}
+
+.espaço {
+    margin-top: 14px;
+}
+
+.margem_esquerda {
+    padding-left: 10px;
+}
