@@ -1,22 +1,24 @@
 // Exercício 1
 
-const ingredientes = [
-    ['hamburguer', '2 hambúrgueres'],
-    ['salada', 'alface'],
-    ['queijo', 'queijo'],
-    ['molho', 'molho especial'],
-    ['salada02', 'cebola'],
-    ['salada03', 'picles'],
-    ['pao', 'pão com gergelim'],
-  ]
-  
-  function fazUmBigMac(ingredientes) {
-    return ingredientes.reduce((objeto, ingredientes) => {
-      objeto[ingredientes[0].toString()] = ingredientes[1]
-      return objeto
-    }, {})
-  }
-  console.log(fazUmBigMac(ingredientes))
+const ingredientes: string[][] = [
+  ['hamburguer', '2 hambúrgueres'],
+  ['salada', 'alface'],
+  ['queijo', 'queijo'],
+  ['molho', 'molho especial'],
+  ['salada02', 'cebola'],
+  ['salada03', 'picles'],
+  ['pao', 'pão com gergelim'],
+]
+
+function fazUmBigMac(ingredientes: String[][]) {
+  return ingredientes.reduce(
+    function (acc, valorAtual) {
+      return acc.concat(valorAtual)
+    },
+    []
+  )
+}
+console.log(fazUmBigMac(ingredientes))
 
 // Exercício 2
   
@@ -53,28 +55,57 @@ const alunos = [
 // Exercício 4
 
 const alunos = [
-    { nome: 'João', nota: 7.3, bolsista: false },
-    { nome: 'Maria', nota: 9.2, bolsista: true },
-    { nome: 'Pedro', nota: 9.8, bolsista: false },
-    { nome: 'Ana', nota: 8.7, bolsista: true }
-  ];
-  
+  { nome: 'André', nota: 2.0, bolsista: true },
+  { nome: 'João', nota: 7.3, bolsista: false },
+  { nome: 'Maria', nota: 9.2, bolsista: true },
+  { nome: 'Pedro', nota: 9.8, bolsista: false },
+  { nome: 'Ana', nota: 8.7, bolsista: true }
+];
+
+
+function orderBy(alunos: any[], criterios: string[]) {
+
+  criterios.forEach(criterio => {
+    alunos.sort(function (a, b) {
+      if (a[criterio] > b[criterio]) {
+        return 1;
+      }
+      if (a[criterio] < b[criterio]) {
+        return -1;
+      }
+      return 0;
+    });
+  });
+  let primeiroCriterio = criterios[0];
+  let segundoCriterio = criterios[1];
   alunos.sort(function (a, b) {
-    if (a.nota > b.nota) {
+    if (a[primeiroCriterio] > a[primeiroCriterio]) {
       return 1;
     }
-    if (a.nota < b.nota) {
+    if (a[primeiroCriterio] < b[primeiroCriterio]) {
       return -1;
     }
     return 0;
-  })
-  
-  let novoAluno = [];
-  alunos.forEach(element => {
-    novoAluno.push({ nome: element.nome, nota: element.nota })
   });
-  
-  console.log(novoAluno);
+
+  alunos.sort(function (a, b) {
+    if (a[segundoCriterio] > a[segundoCriterio]) {
+      return 1;
+    }
+    if (a[segundoCriterio] < b[segundoCriterio]) {
+      return -1;
+    }
+    return 0;
+  });
+  console.log(alunos);
+}
+
+let novoAluno = [];
+alunos.forEach(element => {
+  novoAluno.push({ nome: element.nome, nota: element.nota })
+});
+
+orderBy(novoAluno, ["nome", "nota"]);
 
 //  Exercício 5
 
@@ -152,16 +183,14 @@ function fila() {
   const usuariosInativos = []
   
   
-  usuarios.forEach(valorAtual => {
+  usuarios.filter(valorAtual => {
   
-    if (valorAtual.ativo === true) {
-      usuariosAtivos.push({ 'nome': valorAtual.nome, 'ativo': valorAtual.ativo })
+    if (valorAtual.ativo) {
+      usuariosAtivos.push({ valorAtual })
   
-  
-    } else if (valorAtual.ativo === false) {
-      usuariosInativos.push({ 'nome': valorAtual.nome, 'ativo': valorAtual.ativo })
+    } else if (!valorAtual.ativo) {
+      usuariosInativos.push({ valorAtual })
     }
   })
   console.log(usuariosAtivos)
   console.log(usuariosInativos)
-  
