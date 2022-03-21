@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/babel">
+
+        const Button = ({nome, estilo}) => (
+            <button type="button"
+                style={estilo}
+                className="botao">
+                {nome}
+            </button>
+        );
+
+        const Header = () => (
+            <div className="cabecalho">
+                <h1 className="titulo">CONTACTS</h1>
+                <div className="pesquisa">
+                    <Button nome="Search" estilo={{
+                        backgroundColor: "#f2fa5a", 
+                        color: "rgb(118, 118, 118)", 
+                        borderRadius: "48px",
+                        padding: "4px 80px",
+                    }}></Button>
+                </div>
+            </div>
+        );
+
+        const ListContact = ({children}) => (
+            <ul style={{listStyleType: "none"}}>
+                {children}
+            </ul>
+
+        );
+
+        const Contact = ({nome, foto, cargo}) => (
+            <li className="corpo-contato">
+                <div className="lado-esquerdo linha">
+                    <img className="pessoa-avatar" src={foto}></img>
+                    <div className="nome-cargo coluna">
+                        <span className="pessoa-nome">{nome}</span>
+                        <span className="pessoa-cargo">{cargo}</span>
+                    </div>
+                </div>
+                <div className="lado-direito linha">
+                    <Button nome="Call" estilo={{
+                        backgroundColor: "#51ebeb", 
+                        color: "#f2fa5a",
+                        borderRadius: "8px",
+                        padding: "12px",
+                        borderWidth: 1,
+                        borderColor: "#f2fa5a",
+                        marginRight: "8px",
+                        height: "min-content",
+                    }}></Button>
+                    <Button nome="Send e-mail" estilo={{
+                        backgroundColor: "#51ebeb", 
+                        color: "#f2fa5a",
+                        borderRadius: "8px",
+                        padding: "12px",
+                        borderWidth: 1,
+                        borderColor: "#f2fa5a",
+                        height: "min-content",
+                    }}></Button>
+                </div>
+                
+            </li>
+            
+        );
+
+        const Footer = () => (
+            <div className="rodape">
+                <span>We found 23 contacts</span>
+            </div>
+        )
+
+        const element = (
+            <div className="contato-corpo coluna">
+                <Header></Header>
+                <ListContact>
+                    <Contact 
+                        nome="Tom James" 
+                        foto="https://4bgowik9viu406fbr2hsu10z-wpengine.netdna-ssl.com/wp-content/uploads/2020/03/Portrait_5-1.jpg"
+                        cargo="Programmer"
+                    />
+                    <Contact 
+                        nome="Alessa Smith" 
+                        foto="https://i.pinimg.com/originals/bd/b0/40/bdb0409f08d0ffd8bc732f4110cc6ad9.jpg"
+                        cargo="Manager"
+                    />
+                    <Contact 
+                        nome="Kate Minard" 
+                        foto="https://honeybramble.com/wp-content/uploads/chin-length-waves-with-blunt-bangs-frame-a-young-womens-square-face.jpg"
+                        cargo="Web Designer"
+                    />
+                    <Contact 
+                        nome="John Tudor" 
+                        foto="https://s3.amazonaws.com/arc-authors/washpost/50eda441-600e-4fa5-9f0d-6cb1714ac367.png"
+                        cargo="Database Admin"
+                    />
+                    
+                </ListContact>
+                <Footer></Footer>
+            </div>
+            
+        );
+
+        ReactDOM.render(element, document.getElementById('root'));
+    </script>
+</body>
+
+</html>
+
