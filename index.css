@@ -1,0 +1,75 @@
+body {
+    background-color: #4D77FF;
+}
+
+.coluna {
+    display: flex;
+    flex-direction: column;
+}
+
+.linha {
+    display: flex;
+    flex-direction: row;
+}
+
+.titulo {
+    color: #f2fa5a;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.pesquisa {
+    font-size: 20px;
+}
+
+.cabecalho {
+    padding: 24px 24px 0px 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.corpo-contato {
+    margin: 24px;
+    padding: 8px 24px 8px 24px;
+    background-color: #56BBF1; 
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.pessoa-avatar {
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    margin-right: 24px;
+}
+
+.nome-cargo {
+    justify-content: center;
+}
+
+.pessoa-nome {
+    color: #f1e1a6;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.pessoa-cargo {
+    color: #F4BBBB;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.lado-direito {
+    align-items: center;
+}
+
+.rodape {
+    color: #f2fa5a;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0px 0px 24px 24px;
+}
