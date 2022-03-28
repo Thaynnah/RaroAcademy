@@ -1,0 +1,10 @@
+.body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    flex-wrap: wrap;
+    align-content: center;
+    font-family: 'Open Sans', sans-serif;
+    margin: 8px 50px 30px 150px;
+  }
